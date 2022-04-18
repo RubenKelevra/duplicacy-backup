@@ -64,3 +64,5 @@
 /boot/i915-firmware.cpio.xz
 /boot/intel-ucode.cpio
 /boot/intel-ucode.img
+/home/*/.jd/tmp/*
+/home/*/.jd/logs/*
