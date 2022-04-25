@@ -26,7 +26,7 @@ LOCAL_EXCLUDE="$HOME/makebackup_local.excludes"
 KEEP_WITHIN='1:2' # all snapshots for 2 days; daily afterwards
 KEEP_DAILY='7:62' # purge to weekly after two month
 KEEP_WEEKLY='30:1424' # pruge to monthly after 4 years
-KEEP_MONTHLY="356:2880" # purge to yearly after 4 years
+KEEP_MONTHLY="365:2880" # purge to yearly after 4 years
 KEEP_YEARLY="0:35244" # 99 years
 
 # directory of the duplicacy cache to add it to the filter
