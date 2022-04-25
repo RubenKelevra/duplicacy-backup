@@ -111,3 +111,4 @@
 -/var/lib/texmf/luatex-cache/*
 -/var/log/*
 -/var/tmp/*
+-/home/*/.local/share/silos-*/QtWebEngine/Default/GPUCache/
