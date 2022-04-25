@@ -71,12 +71,11 @@ echo "Move blacklist to duplicacies 'filters' file location..."
 rm -f /tmp/duplicacy-backup.blacklist 2>/dev/null || true
 
 echo "Backing up..."
-duplicacy backup -id "$hostname" # FIXME: complete
+duplicacy backup -storage "$storage_id" -threads 4 -id "$hostname" # FIXME: needs to be checked
 
 echo "Full system-backup done. Forgetting old snapshots..."
-duplicacy prune -storage "$storage_id" -id "$hostname" -collect-only -keep "$KEEP_WITHIN" -keep "$KEEP_DAILY" -keep "$KEEP_WEEKLY" -keep "$KEEP_MONTHLY" -keep "$KEEP_YEARLY" # FIXME: check
-duplicacy check -fossils -resurrect # FIXME: complete
-duplicacy prune -storage "$storage_id" -a -threads 4 -exhaustive -delete-only #FIXME: check
+duplicacy check -storage "$storage_id" -id "$hostname" -fossils -resurrect -threads 4 # FIXME: needs to be check
+duplicacy prune -storage "$storage_id" -a -keep "$KEEP_WITHIN" -keep "$KEEP_DAILY" -keep "$KEEP_WEEKLY" -keep "$KEEP_MONTHLY" -keep "$KEEP_YEARLY" -threads 4 # FIXME: needs to be checked
 
 sudo setcap cap_dac_read_search=-ep /usr/bin/duplicacy
 
