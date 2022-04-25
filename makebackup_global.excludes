@@ -1,9 +1,9 @@
-/boot/initramfs*
-/boot/vmlinuz*
-/boot/booster*.img
-/boot/i915-firmware.cpio.xz
-/boot/intel-ucode.cpio
-/boot/intel-ucode.img
+-/boot/initramfs*
+-/boot/vmlinuz*
+-/boot/booster*.img
+-/boot/i915-firmware.cpio.xz
+-/boot/intel-ucode.cpio
+-/boot/intel-ucode.img
 -/dev/*
 -/home/*/.bitcoin/anchors.dat
 -/home/*/.bitcoin/banlist.json
