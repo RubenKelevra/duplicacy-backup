@@ -30,8 +30,8 @@ KEEP_MONTHLY="365:2880" # purge to yearly after 4 years
 KEEP_YEARLY="0:35244" # 99 years
 
 # directory of the duplicacy cache to add it to the filter
-CACHEDIR_USER='-/home/*/.duplicacy/cache'
-CACHEDIR_ROOT='-/root/.duplicacy/cache'
+CACHEDIR_USER='-home/*/.duplicacy/cache'
+CACHEDIR_ROOT='-root/.duplicacy/cache'
 
 # set capability for reading all files (this avoid that duplicacy needs to be run as root)
 sudo setcap cap_dac_read_search=+ep /usr/bin/duplicacy
