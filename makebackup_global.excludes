@@ -21,6 +21,7 @@
 -home/*/.claws-mail/filtering.log.bak
 -home/*/.claws-mail/imapcache/*
 -home/*/.config/Electron/*/*Cache/*
+-home/*/.config/Electron/*/Cache*/*
 -home/*/.config/Electron/*Cache/*
 -home/*/.config/Electron/SafetyTips/*
 -home/*/.config/Electron/*/Service Worker/Cache*/*
@@ -28,6 +29,7 @@
 -home/*/.config/Electron/*/Storage/ext/*/def/*Cache/*
 -home/*/.config/Electron/*/VideoDecodeStats/*
 -home/*/.config/Element/*/*Cache/*
+-home/*/.config/Element/*/Cache*/*
 -home/*/.config/Element/*Cache/*
 -home/*/.config/Element/SafetyTips/*
 -home/*/.config/Element/*/Service Worker/Cache*/*
@@ -35,6 +37,7 @@
 -home/*/.config/Element/*/Storage/ext/*/def/*Cache/*
 -home/*/.config/Element/*/VideoDecodeStats/*
 -home/*/.config/google-chrome/*/*Cache/*
+-home/*/.config/google-chrome/*/Cache*/*
 -home/*/.config/google-chrome/*Cache/*
 -home/*/.config/google-chrome/SafetyTips/*
 -home/*/.config/google-chrome/*/Service Worker/Cache*/*
@@ -42,6 +45,7 @@
 -home/*/.config/google-chrome/*/Storage/ext/*/def/*Cache/*
 -home/*/.config/google-chrome/*/VideoDecodeStats/*
 -home/*/.config/Riot/*/*Cache/*
+-home/*/.config/Riot/*/Cache*/*
 -home/*/.config/Riot/*Cache/*
 -home/*/.config/Riot/SafetyTips/*
 -home/*/.config/Riot/*/Service Worker/Cache*/*
@@ -49,6 +53,7 @@
 -home/*/.config/Riot/*/Storage/ext/*/def/*Cache/*
 -home/*/.config/Riot/*/VideoDecodeStats/*
 -home/*/.config/Slack/*/*Cache/*
+-home/*/.config/Slack/*/Cache*/*
 -home/*/.config/Slack/*Cache/*
 -home/*/.config/Slack/SafetyTips/*
 -home/*/.config/Slack/*/Service Worker/Cache*/*
@@ -56,6 +61,7 @@
 -home/*/.config/Slack/*/Storage/ext/*/def/*Cache/*
 -home/*/.config/Slack/*/VideoDecodeStats/*
 -home/*/.config/*-nativefier-*/*/*Cache/*
+-home/*/.config/*-nativefier-*/*/Cache*/*
 -home/*/.config/*-nativefier-*/*Cache/*
 -home/*/.config/*-nativefier-*/SafetyTips/*
 -home/*/.config/*-nativefier-*/*/Service Worker/Cache*/*
