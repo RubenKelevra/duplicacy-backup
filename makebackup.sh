@@ -48,7 +48,7 @@ done < <(sudo pacman -Ql | cut -f 1 -d ' ' --complement)
 sudo paccheck --md5sum --quiet --db-files --noupgrade --backup | awk '{ print $2 }' | sed "s/'//g" > /tmp/duplicacy-backup.changed_files
 
 # backup the changed files (remove them from the blacklist)
-grep -v -x -f /tmp/duplicacy-backup.changed_files /tmp/duplicacy-backup.pkg_files | sed 's/\[/\\[/g' > /tmp/duplicacy-backup.blacklist
+grep -v -x -f /tmp/duplicacy-backup.changed_files /tmp/duplicacy-backup.pkg_files | sed 's/\[/\\[/g' | sed 's/^\//-/g' > /tmp/duplicacy-backup.blacklist
 
 rm -f /tmp/duplicacy-backup.pkg_files 2>/dev/null || true
 rm -f /tmp/duplicacy-backup.changed_files 2>/dev/null || true
