@@ -5,6 +5,8 @@
 -boot/intel-ucode.cpio
 -boot/intel-ucode.img
 -dev/*
+-home/*/.atom/.apm/_cacache/*
+-home/*/.atom/.apm/_logs/*
 -home/*/.bitcoin/anchors.dat
 -home/*/.bitcoin/banlist.json
 -home/*/.bitcoin/blocks/*
@@ -15,11 +17,19 @@
 -home/*/.bitcoin/peers.dat
 -home/*/.cache/*
 -home/*/.cargo/*
+-home/*/.claws-mail/avatarcache/*
 -home/*/.claws-mail/claws.log
 -home/*/.claws-mail/claws.log.bak
 -home/*/.claws-mail/filtering.log
 -home/*/.claws-mail/filtering.log.bak
 -home/*/.claws-mail/imapcache/*
+-home/*/.claws-mail/RSSyl/*
+-home/*/.claws-mail/tagsdb/#rssyl/*
+-home/*/.config/Atom/Cache/*
+-home/*/.config/Atom/GPUCache/*
+-home/*/.config/Code - OSS/Cache/*
+-home/*/.config/Code - OSS/Cache*/*
+-home/*/.config/Code - OSS/*Cache/*
 -home/*/.config/Electron/*/*Cache/*
 -home/*/.config/Electron/*/Cache*/*
 -home/*/.config/Electron/*Cache/*
@@ -44,6 +54,7 @@
 -home/*/.config/google-chrome/*/Service Worker/*Cache/*
 -home/*/.config/google-chrome/*/Storage/ext/*/def/*Cache/*
 -home/*/.config/google-chrome/*/VideoDecodeStats/*
+-home/*/.config/JOSM/preferences.xml_backup
 -home/*/.config/Riot/*/*Cache/*
 -home/*/.config/Riot/*/Cache*/*
 -home/*/.config/Riot/*Cache/*
@@ -51,7 +62,8 @@
 -home/*/.config/Riot/*/Service Worker/Cache*/*
 -home/*/.config/Riot/*/Service Worker/*Cache/*
 -home/*/.config/Riot/*/Storage/ext/*/def/*Cache/*
--home/*/.config/Riot/*/VideoDecodeStats/*
+-home/*/.config/Riot/VideoDecodeStats/*
+-home/*/.config/session/*
 -home/*/.config/Slack/*/*Cache/*
 -home/*/.config/Slack/*/Cache*/*
 -home/*/.config/Slack/*Cache/*
@@ -87,9 +99,11 @@
 -home/*/.jd/logs/*
 -home/*/.jd/tmp/*
 -home/*/.josm/autosave/*
--home/*/.josm/cache/tiles/*
--home/*/.josm/cache/*.xml*
+-home/*/.josm/cache/*
+-home/*/.josm/plugins/Mapillary/cache/*
+-home/*/.local/share/RecentDocuments/*
 -home/*/.local/share/akonadi/Akonadi.error*
+-home/*/.local/share/ark/QtWebEngine/Default/GPUCache/*
 -home/*/.local/share/baloo/*
 -home/*/.local/share/bottles/bottles/*
 -home/*/.local/share/bottles/dxvk/*
