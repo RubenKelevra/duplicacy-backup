@@ -19,7 +19,7 @@ set -e
 
 USER=user
 HOSTNAME=hostname
-SERVER=server
+BACKUP_STORAGE=store1
 GLOBAL_EXCLUDE="$HOME/makebackup_global.excludes"
 LOCAL_EXCLUDE="$HOME/makebackup_local.excludes"
 
@@ -71,11 +71,11 @@ echo "Move blacklist to duplicacies 'filters' file location..."
 rm -f /tmp/duplicacy-backup.blacklist 2>/dev/null || true
 
 echo "Backing up..."
-duplicacy backup -storage "$storage_id" -threads 4 -id "$hostname" # FIXME: needs to be checked
+duplicacy backup -storage "$BACKUP_STORAGE" -threads 4 -id "$HOSTNAME" # FIXME: needs to be checked
 
 echo "Full system-backup done. Forgetting old snapshots..."
-duplicacy check -storage "$storage_id" -id "$hostname" -fossils -resurrect -threads 4 # FIXME: needs to be check
-duplicacy prune -storage "$storage_id" -a -keep "$KEEP_WITHIN" -keep "$KEEP_DAILY" -keep "$KEEP_WEEKLY" -keep "$KEEP_MONTHLY" -keep "$KEEP_YEARLY" -threads 4 # FIXME: needs to be checked
+duplicacy check -storage "$BACKUP_STORAGE" -id "$HOSTNAME" -fossils -resurrect -threads 4 # FIXME: needs to be check
+duplicacy prune -storage "$BACKUP_STORAGE" -a -keep "$KEEP_WITHIN" -keep "$KEEP_DAILY" -keep "$KEEP_WEEKLY" -keep "$KEEP_MONTHLY" -keep "$KEEP_YEARLY" -threads 4 # FIXME: needs to be checked
 
 sudo setcap cap_dac_read_search=-ep /usr/bin/duplicacy
 
