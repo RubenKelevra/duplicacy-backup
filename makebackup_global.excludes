@@ -7,7 +7,6 @@
 -dev/*
 -home/*/.atom/.apm/_cacache/*
 -home/*/.atom/.apm/_logs/*
-
 -home/*/.bitcoin/anchors.dat
 -home/*/.bitcoin/banlist.json
 -home/*/.bitcoin/blocks/*
