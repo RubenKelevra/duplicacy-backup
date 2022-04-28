@@ -14,6 +14,7 @@
 # requires: 
 # - duplicacy
 # - paccheck (community/pacutils)
+# - pacman
 
 set -e
 
