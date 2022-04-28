@@ -7,6 +7,7 @@
 -dev/*
 -home/*/.atom/.apm/_cacache/*
 -home/*/.atom/.apm/_logs/*
+
 -home/*/.bitcoin/anchors.dat
 -home/*/.bitcoin/banlist.json
 -home/*/.bitcoin/blocks/*
@@ -15,6 +16,7 @@
 -home/*/.bitcoin/fee_estimates.dat
 -home/*/.bitcoin/mempool.dat
 -home/*/.bitcoin/peers.dat
+-home/*/.bundle/cache/*
 -home/*/.cache/*
 -home/*/.cargo/*
 -home/*/.claws-mail/avatarcache/*
@@ -75,6 +77,7 @@
 -home/*/*/.dtrash/*
 -home/*/.duplicacy/home/*/web/*
 -home/*/go/*
+-home/*/.gradle/caches/*
 -home/*/.jd/logs/*
 -home/*/.jd/tmp/*
 -home/*/.josm/autosave/*
@@ -102,6 +105,11 @@
 -home/*/.mozilla/firefox/Crash*Reports/*
 -home/*/.mozilla/firefox/*.default/home/*/release/storage/temporary/*
 -home/*/.mozilla/firefox/*.default-release/datareporting/*
+-home/*/.mozilla/firefox/*/healthreport/state.json
+-home/*/.mozilla/firefox/*/crashes/*
+-home/*/.mozilla/firefox/*/datareporting/*
+-home/*/.mozilla/firefox/*/bookmarkbackups/*
+-home/*/.mozilla/firefox/*/sessionstore-backups/*
 -home/*/.mozilla/firefox/*.default-release/saved-telemetry-pings/*
 -home/*/.mozilla/firefox/*.default-release/sessionstore-backups/*
 -home/*/.mozilla/firefox/*.default-release/storage/default/http*
@@ -109,7 +117,8 @@
 -home/*/.mozilla/firefox/*.default-release/storage/temporary/*
 -home/*/.mozilla/firefox/*.default-release/weave/logs/*
 -home/*/.npm/*
--home/ruben/dev/go-ipfs-git/go/*
+-home/*/.kompozer.net/kompozer/*/Cache/*
+-home/*/.thumbnails/*
 -home/.snapshots/*
 -home/*/tmp/*
 -lost+found/*
@@ -132,3 +141,4 @@
 -var/lib/texmf/luatex-cache/*
 -var/log/*
 -var/tmp/*
+-var/lib/sddm/.cache/*
