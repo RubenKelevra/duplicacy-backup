@@ -18,8 +18,7 @@
 
 set -e
 
-USER=user
-HOSTNAME=hostname
+HOSTNAME="$(hostname)"
 BACKUP_STORAGE=store1
 GLOBAL_EXCLUDE="$HOME/makebackup_global.excludes"
 LOCAL_EXCLUDE="$HOME/makebackup_local.excludes"
