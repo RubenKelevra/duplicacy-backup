@@ -66,7 +66,7 @@ sudo pacman -Qne | sudo tee /.explicit_packages.list >/dev/null
 sudo pacman -Qme | sudo tee /.explicit_foreign_packages.list >/dev/null
 
 echo "Move blacklist to duplicacies 'filters' file location..."
-[ ! -z "$HOME" ] && cat /tmp/duplicacy-backup.blacklist > "$HOME/.duplicacy/filters" || echo "Error, HOME variable was empty"; exit 1
+[ ! -z "$HOME" ] && cat /tmp/duplicacy-backup.blacklist > "$HOME/.duplicacy/filters" || { echo "Error, HOME variable was empty"; exit 1 }
 
 rm -f /tmp/duplicacy-backup.blacklist 2>/dev/null || true
 
