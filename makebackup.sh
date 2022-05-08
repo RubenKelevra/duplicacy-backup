@@ -54,10 +54,7 @@ rm -f /tmp/duplicacy-backup.pkg_files 2>/dev/null || true
 rm -f /tmp/duplicacy-backup.changed_files 2>/dev/null || true
 
 # add the global exclude list to the black list
-cat "$GLOBAL_EXCLUDE" >> /tmp/duplicacy-backup.blacklist
-cat "$LOCAL_EXCLUDE" >> /tmp/duplicacy-backup.blacklist
-echo "$CACHEDIR_USER" >> /tmp/duplicacy-backup.blacklist
-echo "$CACHEDIR_ROOT" >> /tmp/duplicacy-backup.blacklist
+{ cat "$GLOBAL_EXCLUDE"; cat "$LOCAL_EXCLUDE"; echo "$CACHEDIR_USER"; echo "$CACHEDIR_ROOT"; } >> /tmp/duplicacy-backup.blacklist
 
 echo "Generating package lists..."
 
@@ -66,7 +63,12 @@ sudo pacman -Qne | sudo tee /.explicit_packages.list >/dev/null
 sudo pacman -Qme | sudo tee /.explicit_foreign_packages.list >/dev/null
 
 echo "Move blacklist to duplicacies 'filters' file location..."
-[ ! -z "$HOME" ] && cat /tmp/duplicacy-backup.blacklist > "$HOME/.duplicacy/filters" || { echo "Error, HOME variable was empty"; exit 1 }
+if [ -n "$HOME" ]; then
+	cat /tmp/duplicacy-backup.blacklist > "$HOME/.duplicacy/filters"
+else
+	echo "Error, HOME variable was empty"
+	exit 1
+fi
 
 rm -f /tmp/duplicacy-backup.blacklist 2>/dev/null || true
 
