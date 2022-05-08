@@ -71,7 +71,7 @@ echo "Move blacklist to duplicacies 'filters' file location..."
 rm -f /tmp/duplicacy-backup.blacklist 2>/dev/null || true
 
 echo "Backing up..."
-duplicacy backup -storage "$BACKUP_STORAGE" -threads 4 -id "$HOSTNAME" # FIXME: needs to be checked
+duplicacy backup -storage "$BACKUP_STORAGE" -threads 4 # FIXME: needs to be checked
 
 echo "Full system-backup done. Forgetting old snapshots..."
 duplicacy check -storage "$BACKUP_STORAGE" -id "$HOSTNAME" -fossils -resurrect -threads 4 # FIXME: needs to be check
