@@ -141,3 +141,4 @@
 -var/log/*
 -var/tmp/*
 -var/lib/sddm/.cache/*
+-var/lib/paru/aur_chroot/*
