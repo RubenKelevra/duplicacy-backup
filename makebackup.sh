@@ -75,7 +75,7 @@ duplicacy backup -storage "$BACKUP_STORAGE" -threads 4 # FIXME: needs to be chec
 
 echo "Full system-backup done. Forgetting old snapshots..."
 duplicacy check -storage "$BACKUP_STORAGE" -id "$HOSTNAME" -fossils -resurrect -threads 4 # FIXME: needs to be check
-duplicacy prune -storage "$BACKUP_STORAGE" -a -keep "$KEEP_WITHIN" -keep "$KEEP_DAILY" -keep "$KEEP_WEEKLY" -keep "$KEEP_MONTHLY" -keep "$KEEP_YEARLY" -threads 4 # FIXME: needs to be checked
+duplicacy prune -storage "$BACKUP_STORAGE" -id "$HOSTNAME" -keep "$KEEP_WITHIN" -keep "$KEEP_DAILY" -keep "$KEEP_WEEKLY" -keep "$KEEP_MONTHLY" -keep "$KEEP_YEARLY" -threads 4 # FIXME: needs to be checked
 
 sudo setcap cap_dac_read_search=-ep /usr/bin/duplicacy
 
