@@ -73,11 +73,11 @@ fi
 rm -f /tmp/duplicacy-backup.blacklist 2>/dev/null || true
 
 echo "Backing up..."
-duplicacy backup -storage "$BACKUP_STORAGE" -threads 4 # FIXME: needs to be checked
+duplicacy backup -storage "$BACKUP_STORAGE" -threads 4
 
 echo "Full system-backup done. Forgetting old snapshots..."
-duplicacy check -storage "$BACKUP_STORAGE" -id "$HOSTNAME" -fossils -resurrect -threads 4 # FIXME: needs to be check
-duplicacy prune -storage "$BACKUP_STORAGE" -id "$HOSTNAME" -keep "$KEEP_WITHIN" -keep "$KEEP_DAILY" -keep "$KEEP_WEEKLY" -keep "$KEEP_MONTHLY" -keep "$KEEP_YEARLY" -threads 4 # FIXME: needs to be checked
+duplicacy check -storage "$BACKUP_STORAGE" -id "$HOSTNAME" -fossils -resurrect -threads 4
+duplicacy prune -storage "$BACKUP_STORAGE" -id "$HOSTNAME" -keep "$KEEP_WITHIN" -keep "$KEEP_DAILY" -keep "$KEEP_WEEKLY" -keep "$KEEP_MONTHLY" -keep "$KEEP_YEARLY" -threads 4
 
 sudo setcap cap_dac_read_search=-ep /usr/bin/duplicacy
 
