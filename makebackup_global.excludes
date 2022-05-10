@@ -95,7 +95,7 @@
 -home/*/.local/share/bottles/templates/*
 -home/*/.local/share/bottles/vkd3d/*
 -home/*/.local/share/bottles/winebridge/*
--home/*/.local/share/Steam/config/htmlcache/*Cache/*
+-home/*/.local/share/Steam/*
 -home/*/.local/share/kactivitymanagerd/resources/database/*
 -home/*/.local/share/kcookiejar/cookies
 -home/*/.local/share/*/QtWebEngine/*/GPUCache/*
