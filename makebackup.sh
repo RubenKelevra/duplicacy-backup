@@ -42,14 +42,22 @@ echo "Generating exclude lists..."
 echo "=> fetching latest global excludes filte from github..." -ne
 # fetch latest global excludes list from github
 curl https://raw.githubusercontent.com/RubenKelevra/duplicacy-backup/master/makebackup_global.excludes > "$GLOBAL_EXCLUDE" -q 2>/dev/null || echo $'\nFatal: Could not fetch global excludes'
-
 echo " done."
 
+echo "=> cleanup..." -ne
 # fetch all files currently supplied by packages
-rm -f /tmp/duplicacy-backup.pkg_files
+rm -f /tmp/duplicacy-backup.pkg_files 2>/dev/null || true
+echo " done."
+
+first=true
 while IFS= read -r -d $'\n' filepath; do
+	if $first; then
+		echo "=> checking all files from pacman's packages for existence in the local system..." -ne
+		first=false
+	fi
 	[ -f "$filepath" ] && echo "$filepath" >> /tmp/duplicacy-backup.pkg_files
 done < <(sudo pacman -Ql | cut -f 1 -d ' ' --complement)
+echo " done."
 
 # check all files supplied by packages for changes, and write the changed files to a list
 sudo paccheck --md5sum --quiet --db-files --noupgrade --backup | awk '{ print $2 }' | sed "s/'//g" > /tmp/duplicacy-backup.changed_files
