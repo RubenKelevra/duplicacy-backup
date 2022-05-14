@@ -60,12 +60,12 @@
 -home/*/.config/*-nativefier-*/*Service Worker/*Cache*/*
 -home/*/.config/*-nativefier-*/*Storage/ext/*/def/*Cache/*
 -home/*/.config/*-nativefier-*/*VideoDecodeStats/*
--home/*/dev/AUR.*/pkg/*
--home/*/dev/AUR.*/src/*
--home/*/dev/AUR.*/*.tar.bz2
--home/*/dev/AUR.*/*.tar.gz
--home/*/dev/AUR.*/*.tar.xz
--home/*/dev/AUR.*/*.tar.zst
+-home/*/dev/*.AUR/pkg/*
+-home/*/dev/*.AUR/src/*
+-home/*/dev/*.AUR/*.tar.bz2
+-home/*/dev/*.AUR/*.tar.gz
+-home/*/dev/*.AUR/*.tar.xz
+-home/*/dev/*.AUR/*.tar.zst
 -home/*/dev/*/pkg/*
 -home/*/dev/*/src/*
 -home/*/dev/*/*.tar.bz2
