@@ -40,7 +40,7 @@ sudo setcap cap_dac_read_search=+ep /usr/bin/duplicacy
 echo "Generating exclude lists..."
 
 # fetch latest global excludes list from github
-curl https://raw.githubusercontent.com/RubenKelevra/duplicacy-backup/master/makebackup_global.excludes > "$GLOBAL_EXCLUDE" || echo "Fatal: Could not fetch global excludes
+curl https://raw.githubusercontent.com/RubenKelevra/duplicacy-backup/master/makebackup_global.excludes > "$GLOBAL_EXCLUDE" || echo "Fatal: Could not fetch global excludes"
 
 # fetch all files currently supplied by packages
 rm -f /tmp/duplicacy-backup.pkg_files
