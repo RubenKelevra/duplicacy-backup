@@ -60,7 +60,9 @@ done < <(sudo pacman -Ql | cut -f 1 -d ' ' --complement)
 echo " done."
 
 # check all files supplied by packages for changes, and write the changed files to a list
-sudo paccheck --md5sum --quiet --db-files --noupgrade --backup | awk '{ print $2 }' | sed "s/'//g" > /tmp/duplicacy-backup.changed_files
+sudo setcap cap_dac_read_search=+ep /usr/bin/paccheck
+paccheck --md5sum --quiet --db-files --noupgrade --backup | awk '{ print $2 }' | sed "s/'//g" > /tmp/duplicacy-backup.changed_files
+sudo setcap cap_dac_read_search=-ep /usr/bin/paccheck
 
 # backup the changed files (remove them from the blacklist)
 grep -v -x -f /tmp/duplicacy-backup.changed_files /tmp/duplicacy-backup.pkg_files | sed 's/\[/\\[/g' | sed 's/^\//-/g' > /tmp/duplicacy-backup.blacklist
