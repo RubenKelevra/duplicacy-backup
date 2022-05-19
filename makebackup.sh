@@ -40,7 +40,7 @@ sudo setcap cap_dac_read_search=+ep /usr/bin/duplicacy
 echo "Generating exclude lists..."
 
 if [ ! -d "./.git" ]; then
-	echo "=> fetching latest global excludes filte from github..." -ne
+	echo -ne "=> fetching latest global excludes filte from github..."
 	# fetch latest global excludes list from github
 	curl https://raw.githubusercontent.com/RubenKelevra/duplicacy-backup/master/makebackup_global.excludes > "$GLOBAL_EXCLUDE" -q 2>/dev/null || echo $'\nFatal: Could not fetch global excludes'
 	echo " done."
@@ -48,7 +48,7 @@ else
 	git pull -q
 fi
 
-echo "=> cleanup..." -ne
+echo -ne "=> cleanup..."
 # fetch all files currently supplied by packages
 rm -f /tmp/duplicacy-backup.pkg_files 2>/dev/null || true
 echo " done."
@@ -56,7 +56,7 @@ echo " done."
 first=true
 while IFS= read -r -d $'\n' filepath; do
 	if $first; then
-		echo "=> checking all files from pacman's packages for existence in the local system..." -ne
+		echo -ne "=> checking all files from pacman's packages for existence in the local system..."
 		first=false
 	fi
 	[ -f "$filepath" ] && echo "$filepath" >> /tmp/duplicacy-backup.pkg_files
