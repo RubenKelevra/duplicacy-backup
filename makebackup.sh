@@ -20,9 +20,9 @@
 set -e
 
 HOSTNAME="$(hostname)"
-BACKUP_STORAGE=store1
-GLOBAL_EXCLUDE="$HOME/makebackup_global.excludes"
-LOCAL_EXCLUDE="$HOME/makebackup_local.excludes"
+BACKUP_STORAGE="$(cat ./backupstorage)"
+GLOBAL_EXCLUDE="./makebackup_global.excludes"
+LOCAL_EXCLUDE="./makebackup_local.excludes"
 
 KEEP_WITHIN='1:2' # all snapshots for 2 days; daily afterwards
 KEEP_DAILY='7:62' # purge to weekly after two month
@@ -39,10 +39,14 @@ sudo setcap cap_dac_read_search=+ep /usr/bin/duplicacy
 
 echo "Generating exclude lists..."
 
-echo "=> fetching latest global excludes filte from github..." -ne
-# fetch latest global excludes list from github
-curl https://raw.githubusercontent.com/RubenKelevra/duplicacy-backup/master/makebackup_global.excludes > "$GLOBAL_EXCLUDE" -q 2>/dev/null || echo $'\nFatal: Could not fetch global excludes'
-echo " done."
+if [ ! -d "./.git" ]; then
+	echo "=> fetching latest global excludes filte from github..." -ne
+	# fetch latest global excludes list from github
+	curl https://raw.githubusercontent.com/RubenKelevra/duplicacy-backup/master/makebackup_global.excludes > "$GLOBAL_EXCLUDE" -q 2>/dev/null || echo $'\nFatal: Could not fetch global excludes'
+	echo " done."
+else
+	git pull -q
+fi
 
 echo "=> cleanup..." -ne
 # fetch all files currently supplied by packages
