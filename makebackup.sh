@@ -34,8 +34,9 @@ KEEP_YEARLY="0:35244" # 99 years
 CACHEDIR_USER='-home/*/.duplicacy/cache'
 CACHEDIR_ROOT='-root/.duplicacy/cache'
 
-# set capability for reading all files (this avoid that duplicacy needs to be run as root)
+# set capability for reading all files (this avoid that duplicacy/paccheck needs to be run as root)
 sudo setcap cap_dac_read_search=+ep /usr/bin/duplicacy
+sudo setcap cap_dac_read_search=+ep /usr/bin/paccheck
 
 echo "Generating exclude lists..."
 
@@ -64,7 +65,6 @@ done < <(sudo pacman -Ql | cut -f 1 -d ' ' --complement)
 echo " done."
 
 # check all files supplied by packages for changes, and write the changed files to a list
-sudo setcap cap_dac_read_search=+ep /usr/bin/paccheck
 paccheck --md5sum --quiet --db-files --noupgrade --backup | awk '{ print $2 }' | sed "s/'//g" > /tmp/duplicacy-backup.changed_files
 sudo setcap cap_dac_read_search=-ep /usr/bin/paccheck
 
