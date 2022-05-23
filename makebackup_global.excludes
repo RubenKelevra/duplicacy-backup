@@ -144,3 +144,4 @@
 -var/lib/sddm/.cache/*
 -var/lib/paru/aur_chroot/*
 -var/lib/ipfs/blocks/*/*
+-home/*/sdcard/*
