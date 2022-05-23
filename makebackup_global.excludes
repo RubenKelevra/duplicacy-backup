@@ -145,3 +145,4 @@
 -var/lib/paru/aur_chroot/*
 -var/lib/ipfs/blocks/*/*
 -home/*/sdcard/*
+-root/.cache/*
