@@ -77,8 +77,7 @@
 -home/*/.duplicacy/home/*/web/*
 -home/*/go/*
 -home/*/.gradle/caches/*
--home/*/.jd/logs/*
--home/*/.jd/tmp/*
+-home/*/.jd/*
 -home/*/.josm/autosave/*
 -home/*/.josm/cache/*
 -home/*/.josm/plugins/Mapillary/cache/*
