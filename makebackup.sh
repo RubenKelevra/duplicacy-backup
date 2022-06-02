@@ -24,11 +24,11 @@ BACKUP_STORAGE="$(cat ./backupstorage)"
 GLOBAL_EXCLUDE="./makebackup_global.excludes"
 LOCAL_EXCLUDE="./makebackup_local.excludes"
 
-KEEP_WITHIN='1:2' # all snapshots for 2 days; daily afterwards
+KEEP_WITHIN='1:7' # all snapshots for 7 days; daily afterwards
 KEEP_DAILY='7:62' # purge to weekly after two month
-KEEP_WEEKLY='30:1424' # purge to monthly after 4 years
-KEEP_MONTHLY="365:2880" # purge to yearly after 4 years
-KEEP_YEARLY="0:35244" # 99 years
+KEEP_WEEKLY='30:720' # purge to monthly after 2 years
+KEEP_MONTHLY="365:1460" # purge to yearly after 4 years
+KEEP_YEARLY="0:3650" # remove backups after 10 years
 
 # directory of the duplicacy cache to add it to the filter
 CACHEDIR_USER='-home/*/.duplicacy/cache'
