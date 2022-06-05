@@ -70,7 +70,7 @@ unset start_time end_time
 # check all files supplied by packages for changes, and write the changed files to a list
 start_time="$(date +%s)"
 echo -ne "=> check files managed by pacman for changes..."
-paccheck --md5sum --quiet --db-files --noupgrade --backup | awk '{ print $2 }' | sed "s/'//g" > /tmp/duplicacy-backup.changed_files
+paccheck --md5sum --quiet --db-files --noupgrade --backup 2>/dev/null | awk '{ print $2 }' | sed "s/'//g" > /tmp/duplicacy-backup.changed_files
 end_time="$(date +%s)"
 echo " done after $((end_time-start_time)) seconds"
 unset start_time end_time
