@@ -66,7 +66,7 @@ echo " done."
 
 # check all files supplied by packages for changes, and write the changed files to a list
 paccheck --md5sum --quiet --db-files --noupgrade --backup | awk '{ print $2 }' | sed "s/'//g" > /tmp/duplicacy-backup.changed_files
-sudo setcap cap_dac_read_search=-ep /usr/bin/paccheck
+
 
 # backup the changed files (remove them from the blacklist)
 grep -v -x -f /tmp/duplicacy-backup.changed_files /tmp/duplicacy-backup.pkg_files | sed 's/\[/\\[/g' | sed 's/^\//-/g' > /tmp/duplicacy-backup.blacklist
@@ -101,5 +101,6 @@ duplicacy check -storage "$BACKUP_STORAGE" -id "$HOSTNAME" -fossils -resurrect -
 duplicacy prune -storage "$BACKUP_STORAGE" -id "$HOSTNAME" -keep "$KEEP_WITHIN" -keep "$KEEP_DAILY" -keep "$KEEP_WEEKLY" -keep "$KEEP_MONTHLY" -keep "$KEEP_YEARLY" -threads 4
 
 sudo setcap cap_dac_read_search=-ep /usr/bin/duplicacy
+sudo setcap cap_dac_read_search=-ep /usr/bin/paccheck
 
 echo "Operation completed."
