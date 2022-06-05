@@ -117,7 +117,7 @@ echo " done."
 start_time="$(date +%s)"
 echo "=> running duplicacy:
 "
-duplicacy backup -storage "$BACKUP_STORAGE" -threads 4
+duplicacy backup -stats -storage "$BACKUP_STORAGE" -threads 4
 end_time="$(date +%s)"
 echo "
 duplicacy completed it's run after $((start_time-end_time)) seconds"
