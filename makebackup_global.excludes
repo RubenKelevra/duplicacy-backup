@@ -145,3 +145,4 @@
 -var/lib/ipfs/blocks/*/*
 -home/*/sdcard/*
 -root/.cache/*
+-var/lib/docker/overlay*/*
