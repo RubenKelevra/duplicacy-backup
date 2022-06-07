@@ -145,4 +145,6 @@
 -var/lib/ipfs/blocks/*/*
 -home/*/sdcard/*
 -root/.cache/*
--var/lib/docker/overlay*/*
+-var/lib/docker/overlay2/*
+-var/lib/docker/containers/*
+-var/lib/docker/image/overlay2/*
