@@ -132,7 +132,7 @@ unset start_time end_time
 
 start_time="$(date +%s)"
 echo -ne "=> pruning storage..."
-duplicacy prune -storage "$BACKUP_STORAGE" -id "$HOSTNAME" -keep "$KEEP_WITHIN" -keep "$KEEP_DAILY" -keep "$KEEP_WEEKLY" -keep "$KEEP_MONTHLY" -keep "$KEEP_YEARLY" -threads 4
+duplicacy prune -storage "$BACKUP_STORAGE" -id "$HOSTNAME" -keep "$KEEP_YEARLY" -keep "$KEEP_MONTHLY" -keep "$KEEP_WEEKLY" -keep "$KEEP_DAILY" -keep "$KEEP_WITHIN" -threads 4
 end_time="$(date +%s)"
 echo " done after $((end_time-start_time)) seconds"
 unset start_time end_time
