@@ -148,3 +148,4 @@
 -var/lib/docker/overlay2/*
 -var/lib/docker/containers/*
 -var/lib/docker/image/overlay2/*
+-home/*/.ipfs-cluster-follow/*
