@@ -143,7 +143,6 @@
 -var/lib/sddm/.cache/*
 -var/lib/paru/aur_chroot/*
 -var/lib/ipfs/blocks/*/*
--home/*/sdcard/*
 -root/.cache/*
 -var/lib/docker/overlay2/*
 -var/lib/docker/containers/*
