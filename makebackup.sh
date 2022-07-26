@@ -19,7 +19,7 @@
 
 set -e
 
-HOSTNAME="$(hostname)"
+BACKUP_ID="$(hostname)"
 BACKUP_STORAGE="$(cat ./backupstorage)"
 GLOBAL_EXCLUDE="./makebackup_global.excludes"
 LOCAL_EXCLUDE="./makebackup_local.excludes"
@@ -34,7 +34,7 @@ KEEP_YEARLY="0:3650" # remove backups after 10 years
 CACHEDIR_USER='-home/*/.duplicacy/cache'
 CACHEDIR_ROOT='-root/.duplicacy/cache'
 
-# set capability for reading all files (this avoid that duplicacy/paccheck needs to be run as root)
+# set capability for reading all files (this avoids that duplicacy/paccheck needs to be run as root)
 sudo setcap cap_dac_read_search=+ep /usr/bin/duplicacy
 sudo setcap cap_dac_read_search=+ep /usr/bin/paccheck
 
@@ -117,7 +117,7 @@ echo " done."
 start_time="$(date +%s)"
 echo "=> running duplicacy:
 "
-duplicacy backup -stats -storage "$BACKUP_STORAGE" -threads 4
+duplicacy backup -stats -storage "$BACKUP_STORAGE" -threads 1
 end_time="$(date +%s)"
 echo "
 duplicacy completed it's run after $((end_time-start_time)) seconds"
@@ -125,14 +125,14 @@ unset start_time end_time
 
 start_time="$(date +%s)"
 echo -ne "=> checking storage..."
-duplicacy check -storage "$BACKUP_STORAGE" -id "$HOSTNAME" -fossils -resurrect -threads 4
+duplicacy check -storage "$BACKUP_STORAGE" -id "$BACKUP_ID" -fossils -resurrect -threads 2
 end_time="$(date +%s)"
 echo " done after $((end_time-start_time)) seconds"
 unset start_time end_time
 
 start_time="$(date +%s)"
 echo -ne "=> pruning storage..."
-duplicacy prune -storage "$BACKUP_STORAGE" -id "$HOSTNAME" -keep "$KEEP_YEARLY" -keep "$KEEP_MONTHLY" -keep "$KEEP_WEEKLY" -keep "$KEEP_DAILY" -keep "$KEEP_WITHIN" -threads 4
+duplicacy prune -storage "$BACKUP_STORAGE" -id "$BACKUP_ID" -keep "$KEEP_YEARLY" -keep "$KEEP_MONTHLY" -keep "$KEEP_WEEKLY" -keep "$KEEP_DAILY" -keep "$KEEP_WITHIN" -threads 2
 end_time="$(date +%s)"
 echo " done after $((end_time-start_time)) seconds"
 unset start_time end_time
